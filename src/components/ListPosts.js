@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import Title from './Title';
 
 const URL = 'http://localhost:8080/api/get_recent_posts/';
 
@@ -26,7 +28,7 @@ export default class ListPosts extends React.Component {
     return this.state.posts.map(({slug, title})=> {
       return (
         <li key={slug}>
-          <a href={slug}>{title}</a>
+          <Link to={`post/${slug}`}>{title}</Link>
         </li>
       );
     });
@@ -34,9 +36,13 @@ export default class ListPosts extends React.Component {
 
   render() {
     return (
-      <ul>
-        {this.renderPosts()}
-      </ul>
+      <React.Fragment>
+        <Title date={new Date()}/>
+        <p>Listado de Posts</p>
+        <ul>
+          {this.renderPosts()}
+        </ul>
+      </React.Fragment>
     );
   }
 }

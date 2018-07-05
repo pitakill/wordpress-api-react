@@ -14,15 +14,9 @@ export default class CreatePost extends React.Component {
 
   createPost = async () => {
     try {
-      //const responseRaw = await fetch(CREATEPOSTURL + this.state.nonce, {
-        //credentials: 'include',
-          ////'wordpress_logged_in_37d007a56d816107ce5b52c10342db37': 'polo%7C1530750488%7CPR8Y3Zz2HpYn4vZuuz0A4MptC3DEft8U84s4aB5uAKR%7C7c05872e5346831b1cf92dddfedf7c6f4f054d194e7ef818c71dac2169acecc3'
-        //headers: {
-          //'wordpress_logged_in_37d007a56d816107ce5b52c10342db37' : 'polo|1531794302|Kbequz55duM2EOvKxOylD5oEFV1ZlNGXvYvvA5WmWax|e6a01e404c0d3e7ea88f5db96dc517e88ee4d3bebaba6a7dcea7c60ad2a5103d'
-        //}
-      //});
-      //const test = await responseRaw.json();
-      //console.log(test);
+      const responseRaw = await fetch(CREATEPOSTURL + this.state.nonce);
+      const test = await responseRaw.json();
+      console.log(test);
     } catch (error) {
       console.error(error);
     }
@@ -44,7 +38,7 @@ export default class CreatePost extends React.Component {
       <button
         onClick={this.createPost}
       >
-        Hola
+        Create Post
       </button>
     );
   }
